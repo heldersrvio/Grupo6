@@ -1,0 +1,29 @@
+1 equipamento tem varias manutenções :: hasMany
+1 manutenção tem um equipamento :: belongTo
+
+
+chamado: belongTo problema
+problema: hasOne chamado
+
+supervisor
+
+alteração do status para status_manutencao e status_chamados
+
+Começar a integração com o travis ci
+
+
+-- NOVAS ISSUES ITERAÇÃO 3
+@jorge
+Criação da tabela do admin no banco de dados -- OK
+Autenticação do admin -- OK
+Middleware do admin -- OK
+Configuração do adminLTE para o admin -- OK
+Configuração do config/auth.php para o admin -- OK
+Adição do Can para o admin no AdminLTE -- OK
+
+@messias
+criação da model para o admin -- OK
+criação do controller para o admin -- OK
+criação da view para o admin -- ok
+criação da rota para o admin -- ok
+

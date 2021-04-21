@@ -1,0 +1,49 @@
+language: php
+
+php:
+  - 7.3
+
+before_script:
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+  - php artisan serve &
+
+script:
+  - vendor/bin/phpunit
+
+branches:
+  only:
+    - master
+    - dev
+    - iteracao3
+    - iteracao4
+
+services:
+  - mysql
+
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      - mysql-client
+
+dist: trusty
+
+sudo: required  
+
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS testing_db;'
+  - mysql -u root testing_db < scriptMYSQL/equipac_teste.sql
+
+notifications:
+ email: 
+  - unkdev@outlook.com
+
+cache:
+ directories:
+   - node_modules
+   - vendor
